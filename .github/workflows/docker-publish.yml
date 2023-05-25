@@ -68,12 +68,11 @@ jobs:
           resource-group: Zimyo_Dev_RG_CI
       - uses: azure/k8s-create-secret@v4
         with:
-          namespace: 'myapp'
-          secret-name: 'contoso-cr'
-          container-registry-url: 'containerregistry.contoso.com'
+          namespace: 'test'
+          secret-name: 'image-secret'
+          container-registry-url: 'ghcr.io'
           container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
           container-registry-password: ${{ secrets.IMAGE_PULL_SECRET }}
-          id: image-secret
       - uses: Azure/k8s-deploy@v1
         with:
           namespace: 'test'
