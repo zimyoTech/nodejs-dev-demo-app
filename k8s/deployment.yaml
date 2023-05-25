@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: manas978/nodejs-sample-app:latest
+        image: ghcr.io/zimyotech/nodejs-dev-demo-app:main
         ports:
         - containerPort: 8080
