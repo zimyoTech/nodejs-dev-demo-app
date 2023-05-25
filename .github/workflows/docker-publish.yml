@@ -66,6 +66,14 @@ jobs:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: zimyo-dev-k8s-poc
           resource-group: Zimyo_Dev_RG_CI
+      # - uses: azure/k8s-create-secret@v4
+      #   with:
+      #     namespace: 'myapp'
+      #     secret-name: 'contoso-cr'
+      #     container-registry-url: 'containerregistry.contoso.com'
+      #     container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
+      #     container-registry-password: ${{ secrets.IMAGE_PULL_SECRET }}
+      #     id: image-secret
       - uses: Azure/k8s-deploy@v1
         with:
           namespace: 'test'
@@ -74,5 +82,5 @@ jobs:
           images: |
              ghcr.io/zimyotech/nodejs-dev-demo-app:main
           imagepullsecrets: |
-             ${{ secrets.IMAGE_PULL_SECRET }}'
+             '${{ secrets.IMAGE_PULL_SECRET }}'
  
