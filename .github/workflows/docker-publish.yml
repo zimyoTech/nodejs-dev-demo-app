@@ -73,4 +73,6 @@ jobs:
             k8s/deployment.yaml
           images: |
              ghcr.io/zimyotech/nodejs-dev-demo-app:main
+          imagepullsecrets: |
+             ${{ secrets.IMAGE_PULL_SECRET }}'
  
